@@ -1,26 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <v-app>
+    <v-app-bar app color="primary">
+      <v-toolbar-title>Most used words</v-toolbar-title>
+    </v-app-bar>
+
+    <v-main>
+      <!-- $vuetify.application.top: -->
+      <Home />
+      <v-container fluid> </v-container>
+    </v-main>
+
+    <v-footer app>
+      <!-- -->
+      footer
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from "./components/HelloWorld.vue";
+import Home from "./components/HomePage.vue";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  name: "App",
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    Home,
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>
