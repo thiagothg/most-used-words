@@ -31,29 +31,26 @@
 
 <script>
 // import { ipcRenderer } from "electron";
+const { ipcRenderer } = window.require("electron");
 import PillPartial from "./PillComponent.vue";
 
 export default {
   components: { PillPartial },
   data: function () {
     return {
-      groupedWords: [
-        { word: "i", amount: 1234 },
-        { word: "you", amount: 890 },
-        { word: "he", amount: 234 },
-        { word: "she", amount: 14 },
-      ],
+      groupedWords: [],
       files: [],
     };
   },
   methods: {
     processSubtitles() {
       console.log(this.files);
+      let paths = this.files.map((f) => f.path);
 
-      // window.ipcRenderer.send("blabla", "pig");
-      // window.ipcRenderer.on("blabla", (event, resp) => {
-      //   console.log(resp);
-      // });
+      ipcRenderer.send("process-subtitles", paths);
+      ipcRenderer.on("process-subtitles", (event, resp) => {
+        this.groupedWords = resp;
+      });
     },
   },
 };

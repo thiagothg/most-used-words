@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vuetify from "vite-plugin-vuetify";
+// import electron from "vite-plugin-electron";
 
 const path = require("path");
 
@@ -13,6 +14,15 @@ export default defineConfig({
       autoImport: true,
       styles: "sass",
     }),
+    // electron({
+    //   main: {
+    //     // Shortcut of `build.lib.entry`
+    //     entry: "src/main.js",
+    //   },
+    //   electronBuilder: {
+    //     nodeIntegration: true,
+    //   },
+    // }),
   ],
   define: { "process.env": {} },
   resolve: {
